@@ -1,0 +1,29 @@
+﻿@model TShirt
+
+@{
+    ViewData["Title"] = Model.GetDecodedName();
+}
+
+<h1 class="display-4">@Model.GetDecodedName()</h1>
+<hr />
+<div class="d-flex">
+    <img src="@Model.ImageURL"/>
+    <div class="p-1">
+        <div class="d-flex">
+            <h3>
+                @Model.Price
+                @if (Model.Flag != string.Empty)
+                {
+                    <span style="color: green;">@Model.Flag</span>
+                }
+            </h3>
+            
+        </div>
+
+        <p>@Model.Description</p>
+        <button class="btn btn-success">Order !</button>
+    </div>
+    
+    
+</div>
+

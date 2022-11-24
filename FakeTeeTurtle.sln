@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeTeeTurtle", "FakeTeeTurtle\FakeTeeTurtle.csproj", "{471D172A-9959-492E-966C-BF2B85CAFBFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{471D172A-9959-492E-966C-BF2B85CAFBFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{471D172A-9959-492E-966C-BF2B85CAFBFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{471D172A-9959-492E-966C-BF2B85CAFBFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{471D172A-9959-492E-966C-BF2B85CAFBFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E515E1A0-0C8E-4BA4-8509-22B0E28E7937}
+	EndGlobalSection
+EndGlobal

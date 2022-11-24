@@ -1,0 +1,85 @@
+﻿@using System.Web
+@model PageModel
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1 class="display-4">Products</h1>
+
+<div class="d-grid grid-4">
+    @foreach (TShirt item in Model.TShirts)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="@item.ImageURL" class="card-img-top" alt="...">
+            <div class="card-body">
+                @if (item.Flag != string.Empty)
+                {
+                    <span class="badge bg-success">@item.Flag</span>
+                }
+                <h5 class="card-title">@item.GetDecodedName() - @item.Price</h5>
+                
+                <a href="@($"/product/{item.Id}")" class="btn btn-primary">Go to page !</a>
+            </div>
+        </div>
+    }
+</div>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @GetDisabled(Model.Page, true)">
+            <a class="page-link" href="@GetPrevious(Model.Page)" tabindex="-1" aria-disabled="true"><<</a>
+        </li>
+        @foreach (int p in GetPageArray(Model.Page))
+        {
+            <li class="page-item @GetDisabledPage(Model.Page, p)">
+                <a class="page-link" href="@($"/product/page/{p}")">@p</a>
+            </li>
+        }
+        <li class="page-item @GetDisabled(Model.Page, false)">
+            <a class="page-link" href="@GetNext(Model.Page)">>></a>
+        </li>
+    </ul>
+</nav>
+
+@{
+    string GetDisabledPage(int page, int expected)
+    {
+        return (page == expected ? "disabled" : string.Empty);
+    }
+
+    string GetDisabled(int page, bool back)
+    {
+        if (back)
+        {
+            if (page <= 1)
+                return "disabled";
+        }
+        else
+        {
+            if (page >= 8)
+                return "disabled";
+        }
+        
+        return (string.Empty);
+    }
+
+    string GetPrevious(int page)
+    {
+        return ($"/product/page/{page - 1}");
+    }
+
+    string GetNext(int page)
+    {
+        return ($"/product/page/{page + 1}");
+    }
+
+    int[] GetPageArray(int page)
+    {
+        if (page <= 1)
+            return (new[] { 1, 2, 3 });
+        if (page >= 8)
+            return (new[] { 6, 7, 8 });
+        return (new[] { page - 1, page, page + 1 });
+    }
+}
